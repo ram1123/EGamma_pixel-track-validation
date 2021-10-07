@@ -16,6 +16,6 @@ crab-dev submit crab_config_petatrk.py
 ```
 
 ```bash
-crab status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_default/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_default
-
+crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv1/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv1
+crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv1/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv1
 ```

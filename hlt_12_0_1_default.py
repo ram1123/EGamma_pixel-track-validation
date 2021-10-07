@@ -1,10 +1,11 @@
-# hltGetConfiguration /users/swmukher/egm_ele5_open/V16 --setup /dev/CMSSW_12_0_0/GRun/V6 --globaltag auto:phase1_2021_realistic --input root://cms-xrd-global.cern.ch///store/mc/Run3Winter21DRMiniAOD/DYToLL_M-50_TuneCP5_14TeV-pythia8/GEN-SIM-DIGI-RAW/FlatPU30to80FEVT_112X_mcRun3_2021_realistic_v16-v2/270024/a5adba3d-a6b2-46c0-b690-04e9462fad11.root --mc --process MYHLT --prescale none --max-events 50 --output none --customise HLTrigger/Configuration/customizeHLTforEGamma.customiseEGammaMenuDev
+# hltGetConfiguration /users/swmukher/egm_ele5_open/V16 --setup /dev/CMSSW_12_0_0/GRun/V6 --globaltag auto:phase1_2021_realistic --input root://cms-xrd-global.cern.ch///store/mc/Run3Winter21DRMiniAOD/DYToLL_M-50_TuneCP5_14TeV-pythia8/GEN-SIM-DIGI-RAW/FlatPU30to80FEVT_112X_mcRun3_2021_realistic_v16-v2/270024/a5adba3d-a6b2-46c0-b690-04e9462fad11.root --mc --process MYHLT --prescale none --max-events 50 --eras Run3 --output none --customise HLTrigger/Configuration/customizeHLTforEGamma.customiseEGammaMenuDev
 
 # /users/swmukher/egm_ele5_open/V16 (CMSSW_12_0_0)
 
 import FWCore.ParameterSet.Config as cms
 
-process = cms.Process( "MYHLT" )
+from Configuration.Eras.Era_Run3_cff import Run3
+process = cms.Process( "MYHLT", Run3 )
 process.load("setup_dev_CMSSW_12_0_0_GRun_V6_cff")
 
 process.HLTConfigVersion = cms.PSet(

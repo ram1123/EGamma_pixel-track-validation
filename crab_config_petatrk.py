@@ -2,8 +2,8 @@ from CRABClient.UserUtilities import config
 config = config()
 
 # config.section_('General')
-config.General.requestName = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrk'
-config.General.workArea = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrk'
+config.General.requestName = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv1'
+config.General.workArea = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv1'
 config.General.transferOutputs = True
 config.General.transferLogs = True
 
