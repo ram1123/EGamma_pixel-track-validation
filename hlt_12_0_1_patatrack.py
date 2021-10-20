@@ -2732,28 +2732,46 @@ process.hltIter2PixelLayerTriplets = cms.EDProducer( "SeedingLayersEDProducer",
     MTOB = cms.PSet(  ),
     MTEC = cms.PSet(  )
 )
-process.hltIter2PFlowPixelTrackingRegions = cms.EDProducer( "CandidateSeededTrackingRegionsEDProducer",
-    RegionPSet = cms.PSet( 
-      vertexCollection = cms.InputTag( "hltTrimmedPixelVertices" ),
-      zErrorVetex = cms.double( 0.05 ),
-      beamSpot = cms.InputTag( "hltOnlineBeamSpot" ),
-      zErrorBeamSpot = cms.double( 15.0 ),
-      maxNVertices = cms.int32( 10 ),
-      maxNRegions = cms.int32( 100 ),
-      nSigmaZVertex = cms.double( 4.0 ),
-      nSigmaZBeamSpot = cms.double( 3.0 ),
-      ptMin = cms.double( 0.4 ),
-      mode = cms.string( "VerticesFixed" ),
-      input = cms.InputTag( "hltIter1TrackAndTauJets4Iter2" ),
-      searchOpt = cms.bool( True ),
-      whereToUseMeasurementTracker = cms.string( "ForSiStrips" ),
-      originRadius = cms.double( 0.025 ),
-      measurementTrackerName = cms.InputTag( "hltIter2MaskedMeasurementTrackerEvent" ),
-      precise = cms.bool( True ),
-      deltaEta = cms.double( 0.8 ),
-      deltaPhi = cms.double( 0.8 )
-    )
+# process.hltIter2PFlowPixelTrackingRegions = cms.EDProducer( "CandidateSeededTrackingRegionsEDProducer",
+#     RegionPSet = cms.PSet(
+#       vertexCollection = cms.InputTag( "hltTrimmedPixelVertices" ),
+#       zErrorVetex = cms.double( 0.05 ),
+#       beamSpot = cms.InputTag( "hltOnlineBeamSpot" ),
+#       zErrorBeamSpot = cms.double( 15.0 ),
+#       maxNVertices = cms.int32( 10 ),
+#       maxNRegions = cms.int32( 100 ),
+#       nSigmaZVertex = cms.double( 4.0 ),
+#       nSigmaZBeamSpot = cms.double( 3.0 ),
+#       ptMin = cms.double( 0.4 ),
+#       mode = cms.string( "VerticesFixed" ),
+#       input = cms.InputTag( "hltIter1TrackAndTauJets4Iter2" ),
+#       searchOpt = cms.bool( True ),
+#       whereToUseMeasurementTracker = cms.string( "ForSiStrips" ),
+#       originRadius = cms.double( 0.025 ),
+#       measurementTrackerName = cms.InputTag( "hltIter2MaskedMeasurementTrackerEvent" ),
+#       precise = cms.bool( True ),
+#       deltaEta = cms.double( 0.8 ),
+#       deltaPhi = cms.double( 0.8 )
+#     )
+# )
+
+process.hltIter2PFlowPixelTrackingRegionsGlobalPtSeed0p9 = cms.EDProducer( 'GlobalTrackingRegionWithVerticesEDProducer',
+  RegionPSet = cms.PSet(
+    useFixedError = cms.bool( True ),
+    nSigmaZ = cms.double( 4.0 ),
+    VertexCollection = cms.InputTag( 'hltTrimmedPixelVertices' ),
+    beamSpot = cms.InputTag( 'hltOnlineBeamSpot' ),
+    useFoundVertices = cms.bool( True ),
+    fixedError = cms.double( 0.2 ),
+    sigmaZVertex = cms.double( 3.0 ),
+    useFakeVertices = cms.bool( False ),
+    ptMin = cms.double( 0.9 ),
+    originRadius = cms.double( 0.05 ),
+    precise = cms.bool( True ),
+    useMultipleScattering = cms.bool( False )
+  )
 )
+
 process.hltIter2PFlowPixelClusterCheck = cms.EDProducer( "ClusterCheckerEDProducer",
     doClusterCheck = cms.bool( False ),
     MaxNumberOfCosmicClusters = cms.uint32( 50000 ),
@@ -2765,7 +2783,8 @@ process.hltIter2PFlowPixelClusterCheck = cms.EDProducer( "ClusterCheckerEDProduc
 )
 process.hltIter2PFlowPixelHitDoublets = cms.EDProducer( "HitPairEDProducer",
     seedingLayers = cms.InputTag( "hltIter2PixelLayerTriplets" ),
-    trackingRegions = cms.InputTag( "hltIter2PFlowPixelTrackingRegions" ),
+    # trackingRegions = cms.InputTag( "hltIter2PFlowPixelTrackingRegions" ),
+    trackingRegions = cms.InputTag( "hltIter2PFlowPixelTrackingRegionsGlobalPtSeed0p9" ),
     trackingRegionsSeedingLayers = cms.InputTag( "" ),
     clusterCheck = cms.InputTag( "hltIter2PFlowPixelClusterCheck" ),
     produceSeedingHitSets = cms.bool( False ),
@@ -3221,7 +3240,8 @@ process.HLTRecopixelvertexingSequence = cms.Sequence( process.HLTRecoPixelTracks
 process.HLTIterativeTrackingIteration0 = cms.Sequence( process.hltIter0PFLowPixelSeedsFromPixelTracks + process.hltIter0PFlowCkfTrackCandidates + process.hltIter0PFlowCtfWithMaterialTracks + process.hltIter0PFlowTrackCutClassifier + process.hltIter0PFlowTrackSelectionHighPurity )
 process.HLTIterativeTrackingIteration1 = cms.Sequence( process.hltIter1ClustersRefRemoval + process.hltIter1MaskedMeasurementTrackerEvent + process.hltIter1PixelLayerQuadruplets + process.hltIter1PFlowPixelTrackingRegions + process.hltIter1PFlowPixelClusterCheck + process.hltIter1PFlowPixelHitDoublets + process.hltIter1PFlowPixelHitQuadruplets + process.hltIter1PixelTracks + process.hltIter1PFLowPixelSeedsFromPixelTracks + process.hltIter1PFlowCkfTrackCandidates + process.hltIter1PFlowCtfWithMaterialTracks + process.hltIter1PFlowTrackCutClassifierPrompt + process.hltIter1PFlowTrackCutClassifierDetached + process.hltIter1PFlowTrackCutClassifierMerged + process.hltIter1PFlowTrackSelectionHighPurity )
 process.HLTIter1TrackAndTauJets4Iter2Sequence = cms.Sequence( process.hltIter1TrackRefsForJets4Iter2 + process.hltAK4Iter1TrackJets4Iter2 + process.hltIter1TrackAndTauJets4Iter2 )
-process.HLTIterativeTrackingIteration2 = cms.Sequence( process.hltIter2ClustersRefRemoval + process.hltIter2MaskedMeasurementTrackerEvent + process.hltIter2PixelLayerTriplets + process.hltIter2PFlowPixelTrackingRegions + process.hltIter2PFlowPixelClusterCheck + process.hltIter2PFlowPixelHitDoublets + process.hltIter2PFlowPixelHitTriplets + process.hltIter2PFlowPixelSeeds + process.hltIter2PFlowCkfTrackCandidates + process.hltIter2PFlowCtfWithMaterialTracks + process.hltIter2PFlowTrackCutClassifier + process.hltIter2PFlowTrackSelectionHighPurity )
+# process.HLTIterativeTrackingIteration2 = cms.Sequence( process.hltIter2ClustersRefRemoval + process.hltIter2MaskedMeasurementTrackerEvent + process.hltIter2PixelLayerTriplets + process.hltIter2PFlowPixelTrackingRegions + process.hltIter2PFlowPixelClusterCheck + process.hltIter2PFlowPixelHitDoublets + process.hltIter2PFlowPixelHitTriplets + process.hltIter2PFlowPixelSeeds + process.hltIter2PFlowCkfTrackCandidates + process.hltIter2PFlowCtfWithMaterialTracks + process.hltIter2PFlowTrackCutClassifier + process.hltIter2PFlowTrackSelectionHighPurity )
+process.HLTIterativeTrackingIteration2 = cms.Sequence( process.hltIter2ClustersRefRemoval + process.hltIter2MaskedMeasurementTrackerEvent + process.hltIter2PixelLayerTriplets + process.hltIter2PFlowPixelTrackingRegionsGlobalPtSeed0p9 + process.hltIter2PFlowPixelClusterCheck + process.hltIter2PFlowPixelHitDoublets + process.hltIter2PFlowPixelHitTriplets + process.hltIter2PFlowPixelSeeds + process.hltIter2PFlowCkfTrackCandidates + process.hltIter2PFlowCtfWithMaterialTracks + process.hltIter2PFlowTrackCutClassifier + process.hltIter2PFlowTrackSelectionHighPurity )
 process.HLTIterativeTrackingDoubletRecovery = cms.Sequence( process.hltDoubletRecoveryClustersRefRemoval + process.hltDoubletRecoveryMaskedMeasurementTrackerEvent + process.hltDoubletRecoveryPixelLayersAndRegions + process.hltDoubletRecoveryPFlowPixelClusterCheck + process.hltDoubletRecoveryPFlowPixelHitDoublets + process.hltDoubletRecoveryPFlowPixelSeeds + process.hltDoubletRecoveryPFlowCkfTrackCandidates + process.hltDoubletRecoveryPFlowCtfWithMaterialTracks + process.hltDoubletRecoveryPFlowTrackCutClassifier + process.hltDoubletRecoveryPFlowTrackSelectionHighPurity )
 process.HLTIterativeTrackingIter02 = cms.Sequence( process.HLTIterativeTrackingIteration0 + process.HLTIterativeTrackingIteration1 + process.hltIter1Merged + process.HLTIter1TrackAndTauJets4Iter2Sequence + process.HLTIterativeTrackingIteration2 + process.hltIter2Merged + process.HLTIterativeTrackingDoubletRecovery + process.hltMergedTracks )
 process.HLTTrackReconstructionForPFNoMu = cms.Sequence( process.HLTDoLocalPixelSequence + process.HLTRecopixelvertexingSequence + process.HLTDoLocalStripSequence + process.HLTIterativeTrackingIter02 )
