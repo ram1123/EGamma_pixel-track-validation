@@ -47,10 +47,10 @@ crab-dev submit crab_config_default_QCD.py
 ```
 
 ```bash
-crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv2/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv2 --verboseErrors
-crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv2/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv2 --verboseErrors
-crab-dev status -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv2/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv2 --verboseErrors
-crab-dev status -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv2/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv2 --verboseErrors
+crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3 --verboseErrors
+crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3 --verboseErrors
+crab-dev status -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3 --verboseErrors
+crab-dev status -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3 --verboseErrors
 ```
 
 
@@ -59,6 +59,11 @@ crab-dev resubmit -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv2/crab_crab_Zpr
 crab-dev resubmit -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv2/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv2
 ```
 
+# Ntuple version summary
+
+- v1: with updated configuration for regional trackes
+- v2: with updated configuration for global trackes
+- v3: with updated configuration for customizeHLTforRun3Tracking as suggested by Mario. Reference: https://its.cern.ch/jira/plugins/servlet/mobile#issue/CMSHLT-2187
 
 # Analysis
 

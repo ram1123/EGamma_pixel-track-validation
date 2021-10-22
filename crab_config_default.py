@@ -2,14 +2,14 @@ from CRABClient.UserUtilities import config
 config = config()
 
 # config.section_('General')
-config.General.requestName = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv2'
-config.General.workArea = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv2'
+config.General.requestName = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3'
+config.General.workArea = 'crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3'
 config.General.transferOutputs = True
 config.General.transferLogs = True
 
 # config.section_('JobType')
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'hlt_12_0_1_default.py'
+config.JobType.psetName = 'hlt_12_1_0pre4_Default_CustomTracking.py'
 config.JobType.numCores = 4
 
 # config.Data.inputDBS = 'phys03'
@@ -21,6 +21,6 @@ config.Data.inputDataset ='/ZprimeToEE_M-6000_TuneCP5_14TeV-pythia8/Run3Winter21
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 
-config.Data.outLFNDirBase = '/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/defaultv2'
+config.Data.outLFNDirBase = '/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/defaultv3'
 config.Data.publication = False
 config.Site.storageSite = 'T2_CH_CERN'

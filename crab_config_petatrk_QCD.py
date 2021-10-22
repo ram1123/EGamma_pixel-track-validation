@@ -2,14 +2,14 @@ from CRABClient.UserUtilities import config
 config = config()
 
 # config.section_('General')
-config.General.requestName = 'crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv2'
-config.General.workArea = 'crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv2'
+config.General.requestName = 'crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3'
+config.General.workArea = 'crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3'
 config.General.transferOutputs = True
 config.General.transferLogs = True
 
 # config.section_('JobType')
 config.JobType.pluginName = 'Analysis'
-config.JobType.psetName = 'hlt_12_0_1_patatrack.py'
+config.JobType.psetName = 'hlt_12_1_0pre4_PataTrack_CustomTracking.py'
 config.JobType.numCores = 4
 
 # config.Data.inputDBS = 'phys03'
@@ -21,6 +21,6 @@ config.Data.inputDataset ='/QCD_Pt-30To50_EMEnriched_TuneCP5_14TeV-pythia8/Run3W
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 
-config.Data.outLFNDirBase = '/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/PetaTrkv2'
+config.Data.outLFNDirBase = '/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/PetaTrkv3'
 config.Data.publication = False
 config.Site.storageSite = 'T2_CH_CERN'
