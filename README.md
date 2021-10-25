@@ -51,6 +51,13 @@ crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3/crab_crab_Zprim
 crab-dev status -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3 --verboseErrors
 crab-dev status -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3 --verboseErrors
 crab-dev status -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3 --verboseErrors
+
+
+
+crab-dev resubmit -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3
+crab-dev resubmit -d crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3
+crab-dev resubmit -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3
+crab-dev resubmit -d crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3
 ```
 
 
@@ -83,4 +90,11 @@ python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o ZPrime_petaTrkv2.roo
 python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o ZPrime_defaultv2.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/defaultv2/ZprimeToEE_M-6000_TuneCP5_14TeV-pythia8/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv2/211019_124536/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
 python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o QCD_PetaTrkv2.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/PetaTrkv2/QCD_Pt-30To50_EMEnriched_TuneCP5_14TeV-pythia8/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv2/211019_124548/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
 python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o QCD_defaultv2.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/defaultv2/QCD_Pt-30To50_EMEnriched_TuneCP5_14TeV-pythia8/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv2/211019_124554/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
+
+
+# Using multithread v3
+python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o ZPrime_petaTrkv3.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/PetaTrkv3/ZprimeToEE_M-6000_TuneCP5_14TeV-pythia8/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_PetaTrkv3/211022_191312/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
+python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o ZPrime_defaultv3.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/defaultv3/ZprimeToEE_M-6000_TuneCP5_14TeV-pythia8/crab_crab_ZprimeToEE_M6000_TuneCP5_14TeV_defaultv3/211022_191301/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
+python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o QCD_PetaTrkv3.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/PetaTrkv3/QCD_Pt-30To50_EMEnriched_TuneCP5_14TeV-pythia8/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_PetaTrkv3/211022_191322/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
+python3 Analysis/HLTAnalyserPy/test/runMultiThreaded.py  -o QCD_defaultv3.root  /eos/cms/store/group/phys_egamma/Run3TriggerStudies/PixelTrackValidation/defaultv3/QCD_Pt-30To50_EMEnriched_TuneCP5_14TeV-pythia8/crab_crab_QCD_Pt30To50_EMEnriched_TuneCP5_14TeV_defaultv3/211022_191328/0000/output*.root --cmd "python3 Analysis/HLTAnalyserPy/test/makeRun3Ntup.py -r 1000" --hadd
 ```
