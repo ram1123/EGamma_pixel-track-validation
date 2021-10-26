@@ -1,0 +1,3 @@
+[submodule "Plotting-Macro"]
+	path = Plotting-Macro
+	url = git@github.com:ram1123/Plotting-Macro.git
