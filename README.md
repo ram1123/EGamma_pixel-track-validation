@@ -30,8 +30,8 @@ Detailed instructions given [here](https://its.cern.ch/jira/plugins/servlet/mobi
 
     hltGetConfiguration /users/swmukher/egm_ele5_open/V16 --setup /dev/CMSSW_12_0_0/GRun/V6 --globaltag auto:phase1_2021_realistic --input root://cms-xrd-global.cern.ch///store/mc/Run3Winter21DRMiniAOD/DYToLL_M-50_TuneCP5_14TeV-pythia8/GEN-SIM-DIGI-RAW/FlatPU30to80FEVT_112X_mcRun3_2021_realistic_v16-v2/270024/a5adba3d-a6b2-46c0-b690-04e9462fad11.root --mc --process MYHLT --prescale none --max-events 50 --eras Run3 --output none --customise HLTrigger/Configuration/customizeHLTforEGamma.customiseEGammaMenuDev > hlt_Default_CustomTracking.py
 
-    edmConfigDump hlt_12_1_0pre4_Default_CustomTracking.py > hlt_12_1_0pre4_Default_CustomTracking_dump.py
-    edmConfigDump hlt_12_1_0pre4_PataTrack_CustomTracking.py > hlt_12_1_0pre4_PataTrack_CustomTracking_dump.py
+    edmConfigDump --prune hlt_12_1_0pre4_Default_CustomTracking.py > hlt_12_1_0pre4_Default_CustomTracking_dump.py
+    edmConfigDump --prune hlt_12_1_0pre4_PataTrack_CustomTracking.py > hlt_12_1_0pre4_PataTrack_CustomTracking_dump.py
     ```
 
 # Crab job submission
